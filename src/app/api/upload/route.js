@@ -1,12 +1,6 @@
 import cloudinary from "@/lib/cloudinary";
 import { Readable } from 'stream';
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
-
 export async function POST(req) {
   const data = await req.formData();
   const file = data.get("file");
