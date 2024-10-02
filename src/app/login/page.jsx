@@ -84,7 +84,7 @@ const LoginPage = () => {
                Login with google
             </button>
             <div className='text-center my-4'>
-               Don't have an account?{" "}
+               Don&apos;t have an account?{" "}
                <Link
                   className='underline text-gray-500 hover:text-blue-700'
                   href='/register'
