@@ -28,6 +28,10 @@ const UsersPage = () => {
       return "Not an admin";
    }
 
+   if (usersLoading) {
+      return "Loading user..."
+   }
+
    return (
       <section className='mt-8 max-w-2xl mx-auto'>
          <UserTabs isAdmin={true} />
