@@ -10,9 +10,14 @@ const UsersPage = () => {
    const { data, loading } = useProfile();
 
    const [users, setUsers] = useState([]);
+   const [usersLoading, setUsersLoading] = useState(false);
 
    useEffect(() => {
-      axios.get("/api/users").then((res) => setUsers(res.data.allUsers));
+      setUsersLoading(true);
+      axios
+         .get("/api/users")
+         .then((res) => setUsers(res.data.allUsers))
+         .finally(() => setUsersLoading(false));
    }, []);
 
    if (loading) {
@@ -40,7 +45,9 @@ const UsersPage = () => {
                               <span className='italic'>No name</span>
                            )}
                         </div>
-                        <span className='text-gray-500 text-sm'>{user.email}</span>
+                        <span className='text-gray-500 text-sm'>
+                           {user.email}
+                        </span>
                      </div>
                      <div>
                         <Link

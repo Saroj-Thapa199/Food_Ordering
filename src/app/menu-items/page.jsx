@@ -10,10 +10,12 @@ import { useEffect, useState } from "react";
 
 const MenuItemsPage = () => {
    const { loading, data } = useProfile();
+   const [menuItemsLoading, setMenuItemsLoading] = useState(false);
 
    const [menuItems, setMenuItems] = useState([]);
 
    useEffect(() => {
+      setMenuItemsLoading(true);
       const fetchMenuList = async () => {
          try {
             const res = await axios.get("/api/menu-items");
@@ -22,6 +24,8 @@ const MenuItemsPage = () => {
             }
          } catch (error) {
             console.log(error);
+         } finally {
+            setMenuItemsLoading(false);
          }
       };
       fetchMenuList();
@@ -35,6 +39,10 @@ const MenuItemsPage = () => {
       return "Not an admin.";
    }
 
+   if (menuItemsLoading) {
+      return "Loading menu items...";
+   }
+
    return (
       <section className='mt-8 max-w-2xl mx-auto'>
          <UserTabs isAdmin={true} />
@@ -46,7 +54,7 @@ const MenuItemsPage = () => {
          </div>
          <div>
             <h2 className='text-sm text-gray-500 mt-8'>Edit menu Item:</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-2 place-items-center">
+            <div className='grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-2 place-items-center'>
                {menuItems?.length > 0 &&
                   menuItems.map((item) => (
                      <Link
@@ -55,11 +63,15 @@ const MenuItemsPage = () => {
                         className='bg-gray-200 rounded-lg p-4 h-full'
                      >
                         <div className='relative'>
-                           <Image className="rounded-md aspect-square" src={item.image} width={180} height={180} alt="menu-item" />
+                           <Image
+                              className='rounded-md aspect-square'
+                              src={item.image}
+                              width={180}
+                              height={180}
+                              alt='menu-item'
+                           />
                         </div>
-                        <div className="text-center">
-                           {item.name}
-                        </div>
+                        <div className='text-center'>{item.name}</div>
                      </Link>
                   ))}
             </div>
