@@ -8,16 +8,22 @@ import React, { useEffect, useState } from "react";
 const MenuPage = () => {
    const [categories, setCategories] = useState([]);
    const [menuItems, setMenuItems] = useState([]);
+   const [loading, setLoading] = useState(false)
 
    useEffect(() => {
+      setLoading(true)
       Promise.all([
          axios.get("/api/categories"),
          axios.get("/api/menu-items"),
       ]).then(([categoriesRes, menuItemsRes]) => {
          setCategories(categoriesRes.data);
          setMenuItems(menuItemsRes.data.menuList);
-      });
+      }).finally(() => setLoading(false))
    }, []);
+
+   if (loading) {
+      return "Loading menu..."
+   }
 
    return (
       <section className='mt-8'>
