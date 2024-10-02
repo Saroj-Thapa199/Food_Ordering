@@ -39,18 +39,18 @@ const MenuItemsPage = () => {
       return "Not an admin.";
    }
 
-   if (menuItemsLoading) {
-      return "Loading menu items...";
-   }
-
    return (
       <section className='mt-8 max-w-2xl mx-auto'>
          <UserTabs isAdmin={true} />
          <div className='mt-8'>
-            <Link className='button flex' href={"/menu-items/new"}>
-               Create new menu item
-               <Right />
-            </Link>
+            {menuItemsLoading ? (
+               "Loading menu items..."
+            ) : (
+               <Link className='button flex' href={"/menu-items/new"}>
+                  Create new menu item
+                  <Right />
+               </Link>
+            )}
          </div>
          <div>
             <h2 className='text-sm text-gray-500 mt-8'>Edit menu Item:</h2>
