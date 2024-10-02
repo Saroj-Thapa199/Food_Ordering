@@ -110,6 +110,7 @@ const CartPage = () => {
                      <CartProduct key={index}
                         product={product}
                         onRemove={removeCartProduct}
+                        index={index}
                      />
                   ))
                )}

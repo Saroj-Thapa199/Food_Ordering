@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import Trash from "../icons/Trash";
 
-const CartProduct = ({ product, onRemove }) => {
+const CartProduct = ({ product, onRemove, index }) => {
    return (
       <div
          className='flex items-center gap-6 mb-6 border-b pb-4'
