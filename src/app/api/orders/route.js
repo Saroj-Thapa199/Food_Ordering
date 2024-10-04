@@ -25,4 +25,14 @@ export async function GET(req) {
    if (userEmail) {
       return Response.json(await Order.find(userEmail));
    }
+
+   return Response.json(
+      {
+         success: false,
+         message: "Something went wrong"
+      },
+      {
+         status: 500,
+      }
+   );
 }
