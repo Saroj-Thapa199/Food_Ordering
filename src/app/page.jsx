@@ -6,7 +6,7 @@ import SectionHeaders from "@/components/layout/SectionHeaders";
 export const metadata = {
    title: "Food Ordering App",
    description:
-      "Order your favorite meals effortlessly with our food ordering app. Browse restaurants, explore menus, and enjoy quick delivery or convenient pickup",
+      "Order your favorite meals effortlessly with our food ordering app. Browse restaurants, explore menus, and enjoy quick delivery or convenient pickup.",
       icons: {
          icon: '/pizza.png'
       },
