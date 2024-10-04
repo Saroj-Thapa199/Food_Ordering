@@ -13,7 +13,7 @@ export const metadata = {
       openGraph: {
          images: [
            {
-             url: 'pizza-app.png',
+             url: '/pizza-app.png',
              alt: 'food-del-app-cover-photo',
            },
          ],
