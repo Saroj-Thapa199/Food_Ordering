@@ -3,23 +3,6 @@ import Hero from "@/components/layout/Hero";
 import HomeMenu from "@/components/layout/HomeMenu";
 import SectionHeaders from "@/components/layout/SectionHeaders";
 
-export const metadata = {
-   title: "Food Ordering App",
-   description:
-      "Order your favorite meals effortlessly with our food ordering app. Browse restaurants, explore menus, and enjoy quick delivery or convenient pickup.",
-      icons: {
-         icon: '/pizza.png'
-      },
-      openGraph: {
-         images: [
-           {
-             url: '/pizza-app.png',
-             alt: 'food-del-app-cover-photo',
-           },
-         ],
-       },
-};
-
 export default function Home() {
    return (
       <>
