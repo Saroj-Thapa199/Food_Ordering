@@ -12,6 +12,11 @@ export const authOptions = {
       GoogleProvider({
          clientId: process.env.GOOGLE_CLIENT_ID,
          clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+         authorization: {
+            params: {
+               prompt: "select_account",
+            },
+         },
       }),
       CredentialsProvider({
          id: "credentials",
@@ -42,7 +47,7 @@ export const authOptions = {
                   console.log("password wrong");
                   return null;
                }
-               console.log('login success')
+               console.log("login success");
                return user;
             } catch (error) {
                throw new Error("Failed to authenticate");
@@ -55,7 +60,7 @@ export const authOptions = {
    //       if (user) session.user = user
    //       console.log({session})
    //       return session
-   //    } 
+   //    }
    // },
    pages: {
       signIn: "/login",
